@@ -39,8 +39,8 @@
       "native": "hooks (PreToolUse/Stop), skills (.claude/skills), subagents, MCP config, CLAUDE.md memory",
       "oss_overlays": ["awesome-claude-code", "superpowers (obra)", "claude-skills collections", "hookify rules"],
       "last_checked": "2026-10-24",
-      "measured_diff": "pending (battery v3 adapter needed to grade claude-code model path)",
-      "decision": "adapter priority #1: biggest ecosystem; hook receipt adapter first"
+      "measured_diff": "adapter SHIPPED: fleet/adapters/claude-code/hook_receipt.py (Stop hook, metadata-only rows, same shape as opencode plugin); live rows pending settings wire (GATE)",
+      "decision": "adapter shipped 2026-10-24 (selftested: row shape, privacy whitelist, malformed-stdin safety); battery v3 task-graph seeded LIVE on gateway rail"
     },
     {
       "cli": "codex",
