@@ -44,11 +44,11 @@
     },
     {
       "cli": "codex",
-      "native": "AGENTS.md instruction hierarchy, prompts, sandbox/exec policies",
+      "native": "AGENTS.md instruction hierarchy, prompts, sandbox/exec policies, notify hooks",
       "oss_overlays": ["AGENTS.md packs", "prompt catalogs"],
       "last_checked": "2026-10-24",
-      "measured_diff": "pending (adapter)",
-      "decision": "already receipted indirectly via OpenCode gateway rails"
+      "measured_diff": "adapter SHIPPED: fleet/adapters/codex/hook_receipt.py (notify hook, metadata-only rows, argv+stdin payload); live rows pending config.toml wire (GATE)",
+      "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts codex ledgers zero-change"
     },
     {
       "cli": "opencode",
@@ -63,8 +63,8 @@
       "native": ".grok rules/skills, hooks compat, machine-brief memory",
       "oss_overlays": ["grok-harness-adapter patterns"],
       "last_checked": "2026-10-24",
-      "measured_diff": "pending (adapter)",
-      "decision": "same receipt format via rules; low adapter cost"
+      "measured_diff": "adapter SHIPPED: fleet/adapters/grok/hook_receipt.py (session-stop rule hook, metadata-only rows, stdin+argv); live rows pending ~/.grok hooks wire (GATE)",
+      "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts grok ledgers zero-change"
     },
     {
       "cli": "antigravity",
