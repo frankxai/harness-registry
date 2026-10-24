@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cross-CLI harness registry: OmS package family + per-CLI native harness mechanisms and OSS overlays, with the measured diff.">
+<title>Harness Registry · ours + theirs, measured</title>
+<style>:root{--bg:#0A0A0B;--panel:#121214;--ink:#E7E7EA;--mut:#9A9AA3;--em:#10B981;--cy:#06B6D4;--am:#F59E0B;--bd:#26262B}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:2rem 1.25rem 3rem}
+header{border-bottom:1px solid var(--bd);padding:1.75rem 0;margin-bottom:2rem}
+h1{font-size:1.6rem;letter-spacing:-.02em}
+h1 small{color:var(--mut);font-weight:400;font-size:.95rem}
+h2{font-size:1.15rem;margin:2.25rem 0 .9rem;letter-spacing:-.01em}
+p.lede{color:var(--mut);max-width:62ch;margin-top:.5rem}
+table{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.93rem}
+caption{text-align:left;color:var(--mut);font-size:.85rem;padding:.4rem 0}
+th,td{text-align:left;padding:.62rem .7rem;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--mut);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;padding:.1rem .5rem;border-radius:99px;font-size:.78rem;border:1px solid var(--bd)}
+.live{color:var(--em);border-color:var(--em)}
+.pend{color:var(--am);border-color:var(--am)}
+a{color:var(--cy)}
+footer{border-top:1px solid var(--bd);margin-top:2.5rem;padding-top:1.25rem;color:var(--mut);font-size:.85rem}
+code{background:var(--panel);padding:.08rem .3rem;border-radius:.3rem;font-size:.85em}
+@media (max-width:640px){th,td{padding:.5rem .4rem} td.num{white-space:normal}}
+@media (prefers-reduced-motion: no-preference){a{transition:color .15s}}
+:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+</style>
+</head>
+<body>
+<header>
+<h1>Harness Registry <small>ours + theirs, measured</small></h1>
+<p class="lede">Vendors compare models; this compares <strong>harnesses</strong>.
+3 packages, 6 CLIs indexed. Every entry feeds a decision -
+30 days with none and it's flagged for deletion.</p>
+</header>
+<main role="main">
+<section aria-labelledby="sec-ours">
+<h2 id="sec-ours">Ours · the OmS package family</h2>
+<table>
+<caption>Package family: versions read from each repo's schema, never duplicated here.</caption>
+<thead><tr><th scope="col">Package</th><th scope="col">Role</th><th scope="col">Version source</th><th scope="col">Verify gate</th><th scope="col">Feeds</th></tr></thead>
+<tbody><tr><td><a href="https://github.com/frankxai/oh-my-starlight">oh-my-starlight</a></td><td>package (dependency home: star it, depend on it, PR into it)</td><td><code>fleet/routing.schema.json (read, never duplicated)</code></td><td><code>oms/verify.py</code></td><td>the brain's public address; PRs land here</td></tr><tr><td><a href="https://github.com/frankxai/starlight-ai-harness">starlight-ai-harness</a></td><td>template (fork it to bootstrap; upgrade = regenerate via exporter)</td><td><code>fleet/routing.schema.json (read, never duplicated)</code></td><td><code>oms/verify.py</code></td><td>fresh-start surface; regenerates from package on release</td></tr><tr><td><a href="https://github.com/frankxai/agentic-ops">agentic-ops</a></td><td>estate instance + dev SoT mine (receipts, ledgers, crons, portfolio plane)</td><td><code>n/a - private instance</code></td><td><code>oms/verify.py (in-repo)</code></td><td>exports feed both public repos; nothing public hand-edits</td></tr></tbody>
+</table>
+</section>
+<section aria-labelledby="sec-theirs">
+<h2 id="sec-theirs">Theirs · per-CLI harness surfaces</h2>
+<table>
+<caption>Native mechanisms + OSS overlays in the wild; measured diff only where battery rows exist.</caption>
+<thead><tr><th scope="col">CLI</th><th scope="col">Native harness</th><th scope="col">OSS overlays</th><th scope="col" class="num">Last checked</th><th scope="col">Measured diff</th><th scope="col">Feeds</th></tr></thead>
+<tbody><tr><td>claude-code</td><td>hooks (PreToolUse/Stop), skills (.claude/skills), subagents, MCP config, CLAUDE.md memory</td><td>awesome-claude-code, superpowers (obra), claude-skills collections, hookify rules</td><td class='num'>2026-10-24</td><td><span class='pill pend'>pending (battery v3 adapter needed to grade claude-code model path)</span></td><td>adapter priority #1: biggest ecosystem; hook receipt adapter first</td></tr><tr><td>codex</td><td>AGENTS.md instruction hierarchy, prompts, sandbox/exec policies</td><td>AGENTS.md packs, prompt catalogs</td><td class='num'>2026-10-24</td><td><span class='pill pend'>pending (adapter)</span></td><td>already receipted indirectly via OpenCode gateway rails</td></tr><tr><td>opencode</td><td>plugins (events incl. model calls), agents config, skills, MCP</td><td>oh-my-opencode, community plugin ecosystem</td><td class='num'>2026-10-24</td><td><span class='pill live'>LIVE - 144 graded rows, $0.054 lifetime spend, 8 task classes incl. content</span></td><td>primary rail today; the reference all adapters must match</td></tr><tr><td>grok</td><td>.grok rules/skills, hooks compat, machine-brief memory</td><td>grok-harness-adapter patterns</td><td class='num'>2026-10-24</td><td><span class='pill pend'>pending (adapter)</span></td><td>same receipt format via rules; low adapter cost</td></tr><tr><td>antigravity</td><td>AGENTS.md/GEMINI.md, gemini flows, MCP</td><td>gemini agent packs</td><td class='num'>2026-10-24</td><td><span class='pill pend'>pending (adapter)</span></td><td>park until battery v3; watch for hook/skill surface</td></tr><tr><td>cursor</td><td>.cursor rules, project docs</td><td>rule packs</td><td class='num'>2026-10-24</td><td><span class='pill pend'>pending (adapter)</span></td><td>lowest native harness surface; park</td></tr></tbody>
+</table>
+</section>
+</main>
+<footer role="contentinfo">
+<time datetime="2026-10-24T18:51:14Z">generated 2026-10-24T18:51:14Z</time> · deterministic render of
+<code>registry.json</code> · regenerate <code>python build_registry_page.py</code>
+· rule: measured or deleted</footer>
+</body>
+</html>

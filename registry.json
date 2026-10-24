@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "updated": "2026-10-24",
+    "keeper": "frankxai",
+    "rule": "awesome-list with teeth - measured or deleted; every entry feeds a decision (adapter priority / routing rule / positioning); 30 days with no decision = flagged for deletion"
+  },
+  "packages": [
+    {
+      "name": "oh-my-starlight",
+      "repo": "frankxai/oh-my-starlight",
+      "role": "package (dependency home: star it, depend on it, PR into it)",
+      "version_source": "fleet/routing.schema.json (read, never duplicated)",
+      "verify": "oms/verify.py",
+      "status": "active",
+      "decision": "the brain's public address; PRs land here"
+    },
+    {
+      "name": "starlight-ai-harness",
+      "repo": "frankxai/starlight-ai-harness",
+      "role": "template (fork it to bootstrap; upgrade = regenerate via exporter)",
+      "version_source": "fleet/routing.schema.json (read, never duplicated)",
+      "verify": "oms/verify.py",
+      "status": "active",
+      "decision": "fresh-start surface; regenerates from package on release"
+    },
+    {
+      "name": "agentic-ops",
+      "repo": "frankxai/agentic-ops (private)",
+      "role": "estate instance + dev SoT mine (receipts, ledgers, crons, portfolio plane)",
+      "version_source": "n/a - private instance",
+      "verify": "oms/verify.py (in-repo)",
+      "status": "active",
+      "decision": "exports feed both public repos; nothing public hand-edits"
+    }
+  ],
+  "cli_index": [
+    {
+      "cli": "claude-code",
+      "native": "hooks (PreToolUse/Stop), skills (.claude/skills), subagents, MCP config, CLAUDE.md memory",
+      "oss_overlays": ["awesome-claude-code", "superpowers (obra)", "claude-skills collections", "hookify rules"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "pending (battery v3 adapter needed to grade claude-code model path)",
+      "decision": "adapter priority #1: biggest ecosystem; hook receipt adapter first"
+    },
+    {
+      "cli": "codex",
+      "native": "AGENTS.md instruction hierarchy, prompts, sandbox/exec policies",
+      "oss_overlays": ["AGENTS.md packs", "prompt catalogs"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "pending (adapter)",
+      "decision": "already receipted indirectly via OpenCode gateway rails"
+    },
+    {
+      "cli": "opencode",
+      "native": "plugins (events incl. model calls), agents config, skills, MCP",
+      "oss_overlays": ["oh-my-opencode", "community plugin ecosystem"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "LIVE - 144 graded rows, $0.054 lifetime spend, 8 task classes incl. content",
+      "decision": "primary rail today; the reference all adapters must match"
+    },
+    {
+      "cli": "grok",
+      "native": ".grok rules/skills, hooks compat, machine-brief memory",
+      "oss_overlays": ["grok-harness-adapter patterns"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "pending (adapter)",
+      "decision": "same receipt format via rules; low adapter cost"
+    },
+    {
+      "cli": "antigravity",
+      "native": "AGENTS.md/GEMINI.md, gemini flows, MCP",
+      "oss_overlays": ["gemini agent packs"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "pending (adapter)",
+      "decision": "park until battery v3; watch for hook/skill surface"
+    },
+    {
+      "cli": "cursor",
+      "native": ".cursor rules, project docs",
+      "oss_overlays": ["rule packs"],
+      "last_checked": "2026-10-24",
+      "measured_diff": "pending (adapter)",
+      "decision": "lowest native harness surface; park"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Registry re-check gate: render must stay deterministic and self-clean.
+# Weekly cadence matches the estate's routing-review cron; also runs on
+# push/PR so a registry edit that breaks the render never lands silently.
+name: registry-render-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 4 * * 1"  # Mondays 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build + self-grade the registry page
+        run: python build_registry_page.py --check
+      - name: Flag stale entries (30 days with no decision)
+        run: python scripts/flag_stale.py
