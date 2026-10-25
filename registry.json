@@ -55,7 +55,7 @@
       "native": "plugins (events incl. model calls), agents config, skills, MCP",
       "oss_overlays": ["oh-my-opencode", "community plugin ecosystem"],
       "last_checked": "2026-10-24",
-      "measured_diff": "LIVE - 144 graded rows, $0.054 lifetime spend, 8 task classes incl. content",
+      "measured_diff": "LIVE - 158 graded rows, $0.056 lifetime spend, 13 task classes incl. content; nightly 2026-10-25 ran 13/13 green incl. date-arithmetic",
       "decision": "primary rail today; the reference all adapters must match"
     },
     {
