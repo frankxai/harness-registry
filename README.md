@@ -30,7 +30,7 @@ receipt discipline. The data source is the OmS battery + receipts plane
 
 ## Update discipline
 
-`registry.yaml` is the source of truth. The generated comparison page
+`registry.json` is the source of truth. The generated comparison page
 (`registry.html`, `python build_registry_page.py --check`) renders from it.
 Re-check weekly (the estate's routing-review cron re-scans); nothing
 hand-types claims that a battery row doesn't back.
