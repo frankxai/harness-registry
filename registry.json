@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-24",
+    "updated": "2026-11-02",
     "keeper": "frankxai",
     "rule": "awesome-list with teeth - measured or deleted; every entry feeds a decision (adapter priority / routing rule / positioning); 30 days with no decision = flagged for deletion"
   },
@@ -38,32 +38,32 @@
       "cli": "claude-code",
       "native": "hooks (PreToolUse/Stop), skills (.claude/skills), subagents, MCP config, CLAUDE.md memory",
       "oss_overlays": ["awesome-claude-code", "superpowers (obra)", "claude-skills collections", "hookify rules"],
-      "last_checked": "2026-10-24",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/claude-code/hook_receipt.py (Stop hook, metadata-only rows, same shape as opencode plugin); live rows pending settings wire (GATE)",
+      "last_checked": "2026-11-02",
+      "measured_diff": "adapter SHIPPED: fleet/adapters/claude-code/hook_receipt.py (Stop hook, metadata-only rows, same shape as opencode plugin); live rows pending settings.json wire (GATE held, re-checked 2026-11-02)",
       "decision": "adapter shipped 2026-10-24 (selftested: row shape, privacy whitelist, malformed-stdin safety); battery v3 task-graph seeded LIVE on gateway rail"
     },
     {
       "cli": "codex",
       "native": "AGENTS.md instruction hierarchy, prompts, sandbox/exec policies, notify hooks",
       "oss_overlays": ["AGENTS.md packs", "prompt catalogs"],
-      "last_checked": "2026-10-24",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/codex/hook_receipt.py (notify hook, metadata-only rows, argv+stdin payload); live rows pending config.toml wire (GATE)",
+      "last_checked": "2026-11-02",
+      "measured_diff": "adapter SHIPPED: fleet/adapters/codex/hook_receipt.py (notify hook, metadata-only rows, argv+stdin payload); live rows pending config.toml wire (GATE held, re-checked 2026-11-02)",
       "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts codex ledgers zero-change"
     },
     {
       "cli": "opencode",
       "native": "plugins (events incl. model calls), agents config, skills, MCP",
       "oss_overlays": ["oh-my-opencode", "community plugin ecosystem"],
-      "last_checked": "2026-10-24",
-      "measured_diff": "LIVE - 366 graded rows, $0.072 lifetime spend, 22 task battery (v7: refactor-preserving, injection-resistance); PRs #419/#421/#422 merged to main with all 7 independent-review findings fixed",
-      "decision": "primary rail today; the reference all adapters must match"
+      "last_checked": "2026-11-02",
+      "measured_diff": "LIVE - 360 graded rows, $0.072 lifetime spend (fleet/evals/eval_results.jsonl, measured 2026-11-02), battery v7 = 22 tasks; merges today #419 #421 #422 #423 #424 #425 #426 (page builders survive missing/empty first-run states + three-state reports selftest); first official 22-task nightly 2026-11-03 03:30, weekly routing review Mondays 04:00",
+      "decision": "primary rail today; the reference all adapters must match; nightly battery + weekly routing review are the decision conveyor"
     },
     {
       "cli": "grok",
       "native": ".grok rules/skills, hooks compat, machine-brief memory",
       "oss_overlays": ["grok-harness-adapter patterns"],
-      "last_checked": "2026-10-24",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/grok/hook_receipt.py (session-stop rule hook, metadata-only rows, stdin+argv); live rows pending ~/.grok hooks wire (GATE)",
+      "last_checked": "2026-11-02",
+      "measured_diff": "adapter SHIPPED: fleet/adapters/grok/hook_receipt.py (session-stop rule hook, metadata-only rows, stdin+argv); live rows pending ~/.grok hooks wire (GATE held, re-checked 2026-11-02)",
       "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts grok ledgers zero-change"
     },
     {
