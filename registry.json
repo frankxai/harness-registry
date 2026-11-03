@@ -39,7 +39,7 @@
       "native": "hooks (PreToolUse/Stop), skills (.claude/skills), subagents, MCP config, CLAUDE.md memory",
       "oss_overlays": ["awesome-claude-code", "superpowers (obra)", "claude-skills collections", "hookify rules"],
       "last_checked": "2026-11-02",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/claude-code/hook_receipt.py (Stop hook, metadata-only rows, same shape as opencode plugin); live rows pending settings.json wire (GATE held, re-checked 2026-11-02)",
+      "measured_diff": "adapter SHIPPED (Stop hook, metadata rows); MATRIX PROBE 2026-11-03: 3/3 battery tasks, 17.4s avg on its subscription rail (fleet/harness_matrix.py); live receipt rows pending settings.json wire (GATE held)",
       "decision": "adapter shipped 2026-10-24 (selftested: row shape, privacy whitelist, malformed-stdin safety); battery v3 task-graph seeded LIVE on gateway rail"
     },
     {
@@ -47,7 +47,7 @@
       "native": "AGENTS.md instruction hierarchy, prompts, sandbox/exec policies, notify hooks",
       "oss_overlays": ["AGENTS.md packs", "prompt catalogs"],
       "last_checked": "2026-11-02",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/codex/hook_receipt.py (notify hook, metadata-only rows, argv+stdin payload); live rows pending config.toml wire (GATE held, re-checked 2026-11-02)",
+      "measured_diff": "adapter SHIPPED (notify hook, metadata rows); MATRIX PROBE 2026-11-03: 3/3 battery tasks, 17.8s avg on its subscription rail; live rows pending config.toml wire (GATE held)",
       "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts codex ledgers zero-change"
     },
     {
@@ -55,7 +55,7 @@
       "native": "plugins (events incl. model calls), agents config, skills, MCP",
       "oss_overlays": ["oh-my-opencode", "community plugin ecosystem"],
       "last_checked": "2026-11-02",
-      "measured_diff": "LIVE - 360 graded rows, $0.072 lifetime spend (fleet/evals/eval_results.jsonl, measured 2026-11-02), battery v7 = 22 tasks; merges 2026-11-02/03: #419 #421 #422 #423 #424 #425 #426 #427 #429 #430 #431 #432 #433 #434 (first-run guards, silent-fade exit codes, argv refusal, CI fleet selftests, OmO-native corps, export coverage guard, nightly preflight, weekly freshness contract); nightly 03:30; weekly routing review SUNDAYS 04:00 (corrected 2026-11-03 from schtasks evidence)",
+      "measured_diff": "LIVE - 360 graded rows, $0.072 lifetime spend (fleet/evals/eval_results.jsonl, measured 2026-11-02), battery v7 = 22 tasks; merges 2026-11-02/03: #419 #421 #422 #423 #424 #425 #426 #427 #429 #430 #431 #432 #433 #434 #435 #437 #444 (first-run guards, silent-fade exit codes, argv refusal, CI fleet selftests, OmO-native corps, export coverage guard, nightly preflight, weekly freshness contract, harness matrix); MATRIX 2026-11-03: opencode+DS-flash 3/3 at 2.4s avg - ~7x faster than the subscription CLIs on the same probe; free tier is daily-limited (recorded); nightly 03:30; weekly routing review SUNDAYS 04:00 (corrected from schtasks evidence)",
       "decision": "primary rail today; the reference all adapters must match; nightly battery + weekly routing review are the decision conveyor"
     },
     {
@@ -63,7 +63,7 @@
       "native": ".grok rules/skills, hooks compat, machine-brief memory",
       "oss_overlays": ["grok-harness-adapter patterns"],
       "last_checked": "2026-11-02",
-      "measured_diff": "adapter SHIPPED: fleet/adapters/grok/hook_receipt.py (session-stop rule hook, metadata-only rows, stdin+argv); live rows pending ~/.grok hooks wire (GATE held, re-checked 2026-11-02)",
+      "measured_diff": "adapter SHIPPED (session-stop hook, metadata rows); MATRIX PROBE 2026-11-03: 3/3 battery tasks, 13.8s avg (fastest subscription rail); headless shape is --single (prompt as its value); live rows pending ~/.grok hooks wire (GATE held)",
       "decision": "adapter shipped + selftested 2026-10-24; cross-harness counts grok ledgers zero-change"
     },
     {
