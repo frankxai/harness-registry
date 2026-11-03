@@ -55,7 +55,7 @@
       "native": "plugins (events incl. model calls), agents config, skills, MCP",
       "oss_overlays": ["oh-my-opencode", "community plugin ecosystem"],
       "last_checked": "2026-11-02",
-      "measured_diff": "LIVE - 360 graded rows, $0.072 lifetime spend (fleet/evals/eval_results.jsonl, measured 2026-11-02), battery v7 = 22 tasks; merges today #419 #421 #422 #423 #424 #425 #426 (page builders survive missing/empty first-run states + three-state reports selftest); first official 22-task nightly 2026-11-03 03:30, weekly routing review Mondays 04:00",
+      "measured_diff": "LIVE - 360 graded rows, $0.072 lifetime spend (fleet/evals/eval_results.jsonl, measured 2026-11-02), battery v7 = 22 tasks; merges 2026-11-02/03: #419 #421 #422 #423 #424 #425 #426 #427 #429 #430 #431 #432 #433 #434 (first-run guards, silent-fade exit codes, argv refusal, CI fleet selftests, OmO-native corps, export coverage guard, nightly preflight, weekly freshness contract); nightly 03:30; weekly routing review SUNDAYS 04:00 (corrected 2026-11-03 from schtasks evidence)",
       "decision": "primary rail today; the reference all adapters must match; nightly battery + weekly routing review are the decision conveyor"
     },
     {
