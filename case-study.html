@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case study - measured agent harnesses - Starlight registry</title>
+<style>
+:root{--bg:#0A0A0B;--surface:#131315;--border:#26262A;--text:#F4F4F5;--dim:#9CA3AF;--accent:#F59E0B;--cy:#22D3EE}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif,system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:56px 24px}
+h1{font-size:2.1rem;line-height:1.2;margin:0 0 8px}h2{margin-top:40px;font-size:1.3rem;color:var(--accent)}
+p.lead{color:var(--dim);font-size:1.1rem;margin-top:0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.95rem}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+th{background:var(--surface)}td.num{font-variant-numeric:tabular-nums}
+.big{color:var(--cy);font-weight:600}
+code{background:var(--surface);border:1px solid var(--border);padding:1px 5px;border-radius:4px;font-size:.9em}
+footer{margin-top:48px;color:var(--dim);font-size:.9rem;border-top:1px solid var(--border);padding-top:16px}
+a{color:var(--cy)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Four agent harnesses, one battery, measured</h1>
+<p class="lead">The same deterministic tasks through Claude Code, Codex CLI, Grok CLI and OpenCode. Every number below is from a receipt-backed ledger - no LLM judge, no estimates.</p>
+
+<h2>Single-shot (3 tasks, same prompts)</h2>
+<table>
+<tr><th>harness</th><th>pass</th><th>avg latency</th></tr>
+<tr><td>OpenCode direct (gateway)</td><td class="num big">3/3</td><td class="num">1.8 s</td></tr>
+<tr><td>OpenCode CLI</td><td class="num">3/3</td><td class="num">2.4 s</td></tr>
+<tr><td>Grok CLI</td><td class="num">3/3</td><td class="num">13.8 s</td></tr>
+<tr><td>Claude Code</td><td class="num">3/3</td><td class="num">17.4 s</td></tr>
+<tr><td>Codex CLI</td><td class="num">3/3</td><td class="num">17.8 s</td></tr>
+</table>
+
+<h2>Agentic (7 multi-step tasks, state-graded)</h2>
+<table>
+<tr><th>harness / policy</th><th>pass</th><th>avg latency</th></tr>
+<tr><td>OpenCode + DS-flash (auto)</td><td class="num big">10/10</td><td class="num">15.1 s</td></tr>
+<tr><td>Claude Code (acceptEdits)</td><td class="num">10/10</td><td class="num">38.7 s</td></tr>
+<tr><td>Grok CLI (acceptEdits)</td><td class="num">10/11 *</td><td class="num">25.4 s</td></tr>
+<tr><td>Codex (danger-full-access)</td><td class="num">7/7</td><td class="num">36.5 s</td></tr>
+<tr><td>Codex (workspace-write)</td><td class="num">7/10</td><td class="num">58.7 s</td></tr>
+</table>
+<p class="lead" style="font-size:.9rem">* one recorded flake (no tool action, passed on retry). Codex failures were sandbox policy, not the model.</p>
+
+<h2>Cost and velocity (measured)</h2>
+<table>
+<tr><th>measure</th><th>value</th></tr>
+<tr><td>Single-shot metered cost (DS-flash)</td><td class="num">$0.000138 / task</td></tr>
+<tr><td>Agentic metered cost (tool loop)</td><td class="num">$0.081181 / task</td></tr>
+<tr><td>22-task battery, sequential</td><td class="num">44.8 s</td></tr>
+<tr><td>22-task battery, concurrency 3</td><td class="num big">10.9 s (4.1x)</td></tr>
+<tr><td>Subscription rails $/pass</td><td>n/a (plan) - never invented</td></tr>
+</table>
+
+<h2>Reproduce it</h2>
+<p>Public, MIT, stdlib-only: <a href="https://github.com/frankxai/oh-my-starlight">oh-my-starlight</a> (package) and <a href="https://github.com/frankxai/starlight-ai-harness">starlight-ai-harness</a> (template). Probe with <code>python fleet/harness_matrix.py --probe</code>; run the matrix with <code>--all</code>; render tables with <code>--report</code>.</p>
+
+<h2>Caveats</h2>
+<p class="lead" style="font-size:.9rem">3 single-shot / 7 agentic tasks - directional, not final rankings. One machine, one day; latency varies with provider load. Free tiers are bursty (a daily cap was hit and recorded). Policies are labeled per row and never averaged together.</p>
+
+<footer>Method: deterministic graders only (real code, real asserts). If a number cannot be measured it is reported as <code>unrecorded</code>. Maintained by <a href="https://github.com/frankxai">frankxai</a>.</footer>
+</div>
+</body>
+</html>

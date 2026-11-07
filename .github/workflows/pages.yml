@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir -p _site
           cp registry.html _site/index.html
+          cp case-study.html _site/case-study.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
