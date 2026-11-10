@@ -1,0 +1,52 @@
+{
+  "_about": "Record of a registry patch drafted on 2026-11-10 and what became of each part. This file is a proposal log, not registry data: nothing reads it, and registry.json stays the source of truth.",
+  "origin": {
+    "drafted_as": "registry.patch.json in a working session, sha256 52b4464f2465c22dcb9aa2e96490feae50274dbb6c97f9cfc6e8a2b74e1fe275",
+    "base": "registry.json with meta.updated 2026-11-02",
+    "fidelity": "This file summarises the draft; it is not a copy. The applied rows were reworded, and the score and genome shapes below list field names only. The draft itself is kept byte for byte in the private ops repository."
+  },
+  "applied_in_this_change": [
+    "New cli_index row 'ruflo', measured_diff pending.",
+    "New cli_index row 'omo', measured_diff pending.",
+    "opencode row: overlay 'oh-my-opencode' renamed to 'oh-my-openagent (OmO; formerly oh-my-opencode)' after the upstream rename."
+  ],
+  "changed_from_the_draft": [
+    {
+      "draft": "Add ruflo to the oss_overlays of the claude-code, codex and grok rows and append to the claude-code decision.",
+      "now": "One 'ruflo' row instead. The three measured rows and their recorded decisions are untouched.",
+      "why": "Those rows carry battery results and accepted decisions. An unmeasured overlay does not belong inside them."
+    },
+    {
+      "draft": "opencode decision: gen_omo_config.py still emits the sisyphus-era agent roster and lacks the architect, artistry, deep-high and deep-low categories.",
+      "now": "Withdrawn.",
+      "why": "Wrong. The upstream schema (omo.schema.json on dev, sha256 399bae564da87590e0f851d904d6df2fb1137a419c28b3e3b3f436ded78191b0, read 2026-11-10) still names sisyphus, hephaestus, oracle, prometheus, metis, atlas, momus, librarian, explore and multimodal-looker under '[opencode]', and category names are free-form. The generated agents and categories validate. The one real defect, object entries under the reserved _migrations key, is fixed at the source of the generator."
+    },
+    {
+      "draft": "ruflo decision: grade Claude Code with and without `ruflo init` on the agentic battery.",
+      "now": "Decision records the standing posture: doctrine only, runtime quarantined, first measurement is a version-pinned read-only adapter benchmark.",
+      "why": "The estate's upstream pattern register already rules out installing the ruflo runtime ahead of that benchmark. The draft was written without having read it."
+    }
+  ],
+  "not_applied": {
+    "audits_table": {
+      "status": "blocked",
+      "blocked_by": "The ruflo runtime is quarantined, and metaharness ships inside it. Running `npx ruflo metaharness score|genome|mcp-scan` would install and execute that runtime.",
+      "unblocks_when": "The read-only adapter benchmark has run against a pinned ruflo release and the owner lifts the quarantine for this one tool.",
+      "idea": "Store a structural fingerprint per registry entry beside its battery rows, so drift is detectable as well as performance.",
+      "row_shape": {
+        "target": "repo or harness name",
+        "tool": "metaharness score | genome | mcp-scan",
+        "tool_version": "as reported",
+        "run_at": "ISO date",
+        "score": ["harnessFit", "compileConfidence", "taskCoverage", "toolSafety", "memoryUsefulness", "estCostPerRunUsd"],
+        "genome": ["repo_type", "agent_topology", "risk_score", "mcp_surface", "test_confidence", "publish_readiness"],
+        "decision": "what this row changed"
+      },
+      "first_targets": ["frankxai/oh-my-starlight", "Starlight-Intelligence/starlight-ai-harness", "frankxai/starlight-swarm"]
+    }
+  },
+  "upstream_facts_read_2026_11_10": {
+    "ruflo": { "repo": "ruvnet/ruflo", "license": "MIT", "latest_release": "v3.75.0", "installed_or_run_here": false },
+    "omo": { "repo": "code-yeongyu/oh-my-openagent", "license": "Sustainable Use License 1.0", "latest_release": "v5.1.66", "installed_or_run_here": false }
+  }
+}

@@ -15,7 +15,8 @@ produce no decision for 30 days get flagged for deletion at the weekly review.
   Versions are read from each repo's `fleet/routing.schema.json` — never
   duplicated here. Every package passes its own `oms/verify.py` release gate.
 - **cli_index** (theirs): per-CLI (`claude-code`, `codex`, `opencode`,
-  `grok`, `antigravity`, `cursor`) — the native harness mechanisms each
+  `grok`, `antigravity`, `cursor`, plus the harness layers `ruflo` and
+  `omo`) — the native harness mechanisms each
   CLI actually has (hooks / skills / plugins / rules), the OSS overlays in
   the wild, `last_checked`, and the **measured diff vs ours** where we have
   battery rows for that rail. Where `measured_diff` says *pending*, an
