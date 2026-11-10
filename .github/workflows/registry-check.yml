@@ -20,6 +20,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check row shape before rendering
+        run: |
+          python scripts/check_rows.py --selftest
+          python scripts/check_rows.py
       - name: Build + self-grade the registry page
         run: python build_registry_page.py --check
       - name: Flag stale entries (30 days with no decision)
