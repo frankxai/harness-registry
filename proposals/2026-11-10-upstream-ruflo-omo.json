@@ -2,7 +2,8 @@
   "_about": "Record of a registry patch drafted on 2026-11-10 and what became of each part. This file is a proposal log, not registry data: nothing reads it, and registry.json stays the source of truth.",
   "origin": {
     "drafted_as": "registry.patch.json in a working session, sha256 52b4464f2465c22dcb9aa2e96490feae50274dbb6c97f9cfc6e8a2b74e1fe275",
-    "base": "registry.json with meta.updated 2026-11-02"
+    "base": "registry.json with meta.updated 2026-11-02",
+    "fidelity": "This file summarises the draft; it is not a copy. The applied rows were reworded, and the score and genome shapes below list field names only. The draft itself is kept byte for byte in the private ops repository."
   },
   "applied_in_this_change": [
     "New cli_index row 'ruflo', measured_diff pending.",
@@ -11,7 +12,7 @@
   ],
   "changed_from_the_draft": [
     {
-      "draft": "Add ruflo to the oss_overlays of the claude-code, codex and grok rows and append to their decisions.",
+      "draft": "Add ruflo to the oss_overlays of the claude-code, codex and grok rows and append to the claude-code decision.",
       "now": "One 'ruflo' row instead. The three measured rows and their recorded decisions are untouched.",
       "why": "Those rows carry battery results and accepted decisions. An unmeasured overlay does not belong inside them."
     },
@@ -41,7 +42,7 @@
         "genome": ["repo_type", "agent_topology", "risk_score", "mcp_surface", "test_confidence", "publish_readiness"],
         "decision": "what this row changed"
       },
-      "first_targets": ["frankxai/oh-my-starlight", "frankxai/starlight-ai-harness", "frankxai/starlight-swarm"]
+      "first_targets": ["frankxai/oh-my-starlight", "Starlight-Intelligence/starlight-ai-harness", "frankxai/starlight-swarm"]
     }
   },
   "upstream_facts_read_2026_11_10": {
